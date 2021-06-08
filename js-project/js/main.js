@@ -17,7 +17,7 @@ function loadTemplate(loc, tagName="header") {
     document.body.append(header);
     $(tagName).load(loc, null, function () {
         $("#homeLogo").click(function () {
-            window.location = "https://vmsou.github.io/";
+            window.location = "https://vmsou.github.io/js-project";
         })
         activeElement();
     });
