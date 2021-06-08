@@ -1,0 +1,25 @@
+@-webkit-keyframes flipCard {
+    0% {-webkit-transform: rotateY(180deg);}
+    100% {-webkit-transform: rotateY(0deg);}
+}
+
+.cards {
+    margin: 10px;
+    display: grid;
+    place-items: center;
+    place-content: center;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+}
+
+.card {
+    display: block;
+    max-width: 140px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    margin: 5px 10px;
+}
+
+.card.active {
+    -webkit-animation: flipCard 0.3s ease;
+}
