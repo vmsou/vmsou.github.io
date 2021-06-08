@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #0F0F13;
+}
+
+li, a.navLink, button, h2{
+    background: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 2%;
+    background: #0E0E12;
+    border-bottom: 1px solid rgb(30, 30, 35);
+
+}
+
+.logo {
+    content: url("../images/logo_puc.svg");
+    cursor: pointer;
+    transition: all 0.9s ease 0s;
+    background: #0E0E12;
+    width: 60px;
+    height: 60px;
+}
+
+.logo:hover {
+    content: url("../images/logo_puc2.svg");
+}
+
+
+.navLinks {
+    list-style: none;
+    background: #0E0E12;
+}
+
+.navLinks li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+.navLinks li a {
+    transition:  all 0.3s ease 0s;
+}
+
+.navLinks li a:hover {
+    color: #912437
+}
+
+.navLink.active {
+    color: #912437;
+}
+
+button {
+    cursor: pointer;
+    padding: 9px 25px;
+    background-color: rgba(14, 14, 18, 1);
+    border: 1px solid #1E1E23;
+    border-radius: 5px;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #912437;
+}
+
+.landing-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 10px;
+    background: transparent;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.landing-main h1 {
+    margin: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
