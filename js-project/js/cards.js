@@ -1,6 +1,7 @@
 let N_CARDS = 6 * 3;
 let cards = [];
-let cardsNames = ["front1", "front2"]
+let cardsNames = ["front1", "front2"];
+let loadedNames = [];
 let lastClicked = null;
 
 let nTries = 0;
@@ -71,12 +72,25 @@ function randShuffle(sampleList) {
     sampleList.sort(() => Math.random() -0.5);
 }
 
+function preLoad(imgName) {
+    if (document.images && !loadedNames.includes(imgName)) {
+            let img = new Image();
+            img.src = "../images/cards-front/" + imgName + ".png";
+            loadedNames.push(imgName);
+    }
+}
+
 function start() {
+    nTries = 0;
+    nMatches = 0;
+    lastClicked = null;
     let container = document.getElementById("cards-container");
     container.innerHTML = "";
     cards = [];
     for (let i = 0; i < N_CARDS / 2; i++) {
         let card_name = randChoice(cardsNames);
+        preLoad(card_name)
+
         let card1 = new Card(i, "../images/cards-front/" + card_name + ".png");
         let card2 = new Card(i, "../images/cards-front/" + card_name + ".png");
         cards.push(card1);
