@@ -1,12 +1,12 @@
 let N_CARDS = 6 * 3;
 let cards = [];
 let cardsNames = ["front1", "front2"]
-let currentClicked = null;
 let lastClicked = null;
 
 class Card {
     constructor(x, front) {
-        this.found = false;
+        this.faceUp = false;
+        this.match = false;
         this.front = front;
         this.back = "../images/cards-back/default.png";
         this.cardElement = null;
@@ -16,38 +16,42 @@ class Card {
         let card = document.createElement("img");
         card.className = "card";
         card.src = this.back;
-        card.addEventListener("click", e => {
-            card.classList.add("active");
-            card.src = this.front;
-            lastClicked = currentClicked;
-            currentClicked = this;
-
-
-            if (currentClicked !== null && lastClicked !== null && currentClicked !== lastClicked) {
-                if (currentClicked.front === lastClicked.front) {
-                    currentClicked.found = true;
-                    lastClicked.found = true;
-                    currentClicked = null;
-                    lastClicked = null;
-                } else {
-                    setTimeout(function() {
-                        currentClicked.cardElement.classList.remove("active");
-                        lastClicked.cardElement.classList.remove("active");
-                        currentClicked.cardElement.src = currentClicked.back;
-                        lastClicked.cardElement.src = lastClicked.back;
-                        currentClicked = null;
-                        lastClicked = null;
-                    }, 500)
-                }
-            }
-
-        })
-
+        this.eventCard(card);
         this.cardElement = card;
 
         return card;
     }
 
+    showCard() {
+        this.faceUp = true;
+        this.cardElement.classList.add("active");
+        this.cardElement.src = this.front;
+    }
+
+    hideCard() {
+        this.faceUp = false;
+        this.cardElement.classList.remove("active");
+        this.cardElement.src = this.back;
+    }
+
+    eventCard(card) {
+        card.addEventListener("click", () => {
+            if (!this.faceUp && !this.match) {
+                this.showCard();
+                if (lastClicked instanceof Card) {
+                    if (lastClicked.front === this.front) {
+                        lastClicked = null;
+                    } else {
+                        setTimeout(() => {
+                            this.hideCard();
+                            lastClicked.hideCard();
+                            lastClicked = null;
+                        }, 500)
+                    }
+                } else lastClicked = this;
+            }
+        })
+    }
 }
 
 function randChoice(choices) {
@@ -71,7 +75,6 @@ function start() {
         cards.push(card2);
     }
 
-    // shuffle cards
     randShuffle(cards);
     for (let i = 0; i < N_CARDS; i++) {
         let card = cards[i];
