@@ -17,10 +17,15 @@ function loadTemplate(loc, tagName="header") {
     document.body.append(header);
     $(tagName).load(loc, null, function () {
         $("#homeLogo").click(function () {
-            window.location = "https://vmsou.github.io/js-project";
+            window.location = "/js-project/";
         })
         activeElement();
     });
-
+    let container = document.getElementsByTagName("script");
+    for (let i = 0; i < container.length; i++) {
+        let strVal = "loadTemplate(\"" + loc + "\");"
+        if (container[i].innerHTML === strVal) {
+            container[i].parentElement.removeChild(container[i]);
+        }
+    }
 }
-

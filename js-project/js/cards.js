@@ -3,6 +3,9 @@ let cards = [];
 let cardsNames = ["front1", "front2"]
 let lastClicked = null;
 
+let nTries = 0;
+let nMatches = 0;
+
 class Card {
     constructor(x, front) {
         this.faceUp = false;
@@ -37,10 +40,15 @@ class Card {
     eventCard(card) {
         card.addEventListener("click", () => {
             if (!this.faceUp && !this.match) {
+                ++nTries;
                 this.showCard();
                 if (lastClicked instanceof Card) {
                     if (lastClicked.front === this.front) {
+                        ++nMatches;
                         lastClicked = null;
+                        if (nMatches >= N_CARDS / 2) {
+                            alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
+                        }
                     } else {
                         setTimeout(() => {
                             this.hideCard();
@@ -81,6 +89,3 @@ function start() {
         container.append(card.cardElement);
     }
 }
-
-
-

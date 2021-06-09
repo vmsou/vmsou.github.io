@@ -79,6 +79,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin: 15px 10px;
     background: transparent;
     font-family: "Montserrat", sans-serif;
@@ -90,6 +91,7 @@ button:hover {
 
 .landing-main h1 {
     margin: 15px 10px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
