@@ -12,11 +12,11 @@
             $usuario .= $text[$i + 1];
         }
     }
-
+    echo $usuario;
     if ($user == $usuario && $password == "e8d95a51f3af4a3b134bf6bb680a213a") {
-        $retorno = utf8_encode("é admin");
+        $retorno = "admin";
     } else {
-        $retorno = utf8_encode("não é admin");
+        $retorno = "not admin";
     }
     $json = json_encode($retorno);
     echo $json;

@@ -17,25 +17,43 @@ class Card {
         this.buildElement();
     }
     buildElement() {
-        let card = document.createElement("img");
-        card.className = "card";
-        card.src = this.back;
-        this.eventCard(card);
-        this.cardElement = card;
+        let flip = document.createElement("div");
+        flip.className = "flip-card";
 
-        return card;
+        let inner = document.createElement("div");
+        inner.className = "flip-card-inner";
+        flip.append(inner);
+
+        let front = document.createElement("div");
+        front.className = "flip-card-front";
+        inner.append(front);
+
+        let back = document.createElement("div");
+        back.className = "flip-card-back";
+        inner.append(back);
+
+        let img_front = document.createElement("img");
+        img_front.src = this.front;
+        img_front.className = 'card-img';
+        front.append(img_front);
+
+        let img_back = document.createElement("img");
+        img_back.src = this.back;
+        img_back.className = 'card-img';
+        back.append(img_back);
+
+        this.eventCard(flip);
+        this.cardElement = flip;
     }
 
     showCard() {
         this.faceUp = true;
         this.cardElement.classList.add("active");
-        this.cardElement.src = this.front;
     }
 
     hideCard() {
         this.faceUp = false;
         this.cardElement.classList.remove("active");
-        this.cardElement.src = this.back;
     }
 
     eventCard(card) {
@@ -74,9 +92,9 @@ function randShuffle(sampleList) {
 
 function preLoad(imgName) {
     if (document.images && !loadedNames.includes(imgName)) {
-            let img = new Image();
-            img.src = "../images/cards-front/" + imgName + ".png";
-            loadedNames.push(imgName);
+        let img = new Image();
+        img.src = "../images/cards-front/" + imgName + ".png";
+        loadedNames.push(imgName);
     }
 }
 

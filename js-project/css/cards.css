@@ -1,8 +1,3 @@
-@-webkit-keyframes flipCard {
-    0% {-webkit-transform: rotateY(180deg);}
-    100% {-webkit-transform: rotateY(0deg);}
-}
-
 .cards {
     margin: 10px;
     display: grid;
@@ -11,15 +6,40 @@
     grid-template-columns: 150px 150px 150px 150px 150px 150px;
 }
 
-.card {
-    display: block;
-    max-width: 140px;
-    max-height: 200px;
-    width: auto;
-    height: auto;
+.flip-card {
+    background-color: transparent;
+    width: 138px;
+    height: 200px;
+    perspective: 1000px;
     margin: 5px 10px;
 }
 
-.card.active {
-    -webkit-animation: flipCard 0.3s ease;
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.active .flip-card-inner {
+    transform: rotateY(-180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    transform: rotateY(180deg);
+}
+
+.card-img {
+    max-width: 138px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
 }
