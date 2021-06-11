@@ -94,7 +94,7 @@ function randShuffle(sampleList) {
     sampleList.sort(() => Math.random() -0.5);
 }
 
-function preLoad(imgName) {
+function preload(imgName) {
     if (document.images && !loadedNames.includes(imgName)) {
         let img = new Image();
         img.src = "../images/cards-front/" + imgName + ".png";
@@ -111,7 +111,7 @@ function start() {
     cards = [];
     for (let i = 0; i < N_CARDS / 2; i++) {
         let card_name = randChoice(cardsNames);
-        preLoad(card_name)
+        preload(card_name)
 
         let card1 = new Card(i, "../images/cards-front/" + card_name + ".png");
         let card2 = new Card(i, "../images/cards-front/" + card_name + ".png");
@@ -120,8 +120,13 @@ function start() {
     }
 
     randShuffle(cards);
+
     for (let i = 0; i < N_CARDS; i++) {
         let card = cards[i];
         container.append(card.cardElement);
+        card.showCard();
+        setTimeout(() => {
+            card.hideCard();
+        }, 1000);
     }
 }
