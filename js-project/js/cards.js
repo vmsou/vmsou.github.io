@@ -1,6 +1,7 @@
 let N_CARDS = 6 * 3;
 let cards = [];
-let cardsNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4"];
+let cardsNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4",
+    "17573739", "35877582", "56804361", "58066722", "65172015", "65301952", "67748760", "9464441", "98787535"];
 let loadedNames = [];
 let lastClicked = null;
 
