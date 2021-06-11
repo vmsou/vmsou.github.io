@@ -26,6 +26,10 @@ class Card {
 
         let front = document.createElement("div");
         front.className = "flip-card-front";
+
+        if (Math.random() < 0.2) {
+            front.classList.add("holo");
+        }
         inner.append(front);
 
         let back = document.createElement("div");

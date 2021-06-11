@@ -7,11 +7,62 @@
 }
 
 .flip-card {
+    --color1: rgb(255, 148, 54);
+    --color2: rgb(215, 141, 70);
     background-color: transparent;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5% / 3.5%;
+    position: relative;
+    transform-origin: center;
+    z-index: 10;
     width: 138px;
     height: 200px;
     perspective: 1000px;
     margin: 5px 10px;
+}
+
+.flip-card.active .flip-card-inner {
+    transform: rotateY(-180deg);
+}
+
+.flip-card-front.holo:before, .flip-card-front.holo:after {
+    content: "";
+    opacity: 1;
+    mix-blend-mode: color-dodge;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-repeat: no-repeat;
+}
+
+.flip-card-front.holo:before {
+    background-position: 50% 50%;
+    background-size: 300% 300%;
+    animation: holoGradient 15s ease infinite both;
+    background-image: linear-gradient(
+            115deg,
+            transparent 0%,
+            var(--color1) 30%,
+            transparent 47.5%,
+            transparent 52.5%,
+            var(--color2) 70%,
+            transparent 100%
+    );
+}
+
+.flip-card-front.holo:after {
+    opacity: 0.2;
+    background-image: url("../gifs/sparkles.gif");
+    background-position: center;
+    background-size: 100%;
+    z-index: 2;
+    animation: holoSparkle 15s ease infinite both;
+    filter: brightness(2.5);
+    transition: filter 0.5s ease;
 }
 
 .flip-card-inner {
@@ -22,9 +73,6 @@
     transform-style: preserve-3d;
 }
 
-.flip-card.active .flip-card-inner {
-    transform: rotateY(-180deg);
-}
 
 .flip-card-front, .flip-card-back {
     position: absolute;
@@ -42,4 +90,27 @@
     max-height: 200px;
     width: auto;
     height: auto;
+}
+
+
+@keyframes holoSparkle {
+    0%, 5%, 100% { opacity: 0.4; }
+    33% { opacity: 0.6; background-position: 40% 40%; filter: brightness(2); }
+    45% { opacity: 0.4; }
+    66% { opacity: 0.6; background-position: 60% 60%; filter: brightness(2); }
+}
+
+@keyframes holoGradient {
+    0%, 100% {
+        background-position: 100% 100%;
+        opacity: .44;
+    }
+    33% {
+        background-position: 100% 100%;
+        opacity: .44;
+    }
+    66% {
+        background-position: 0 0;
+        opacity: .44;
+    }
 }
