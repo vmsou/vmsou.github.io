@@ -1,6 +1,6 @@
 let N_CARDS = 6 * 3;
 let cards = [];
-let cardsNames = ["front1", "front2"];
+let cardsNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4"];
 let loadedNames = [];
 let lastClicked = null;
 
@@ -27,7 +27,7 @@ class Card {
         let front = document.createElement("div");
         front.className = "flip-card-front";
 
-        if (Math.random() < 0.2) {
+        if (Math.random() < 0.1) {
             front.classList.add("holo");
         }
         inner.append(front);
