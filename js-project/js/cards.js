@@ -71,7 +71,9 @@ class Card {
                         ++nMatches;
                         lastClicked = null;
                         if (nMatches >= N_CARDS / 2) {
-                            alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
+                            setTimeout(() => {
+                                alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
+                            }, 1000)
                         }
                     } else {
                         setTimeout(() => {
@@ -122,12 +124,13 @@ function start() {
 
     randShuffle(cards);
 
-    for (let i = 0; i < N_CARDS; i++) {
-        let card = cards[i];
-        container.append(card.cardElement);
-        card.showCard();
-        setTimeout(() => {
-            card.hideCard();
-        }, 1000);
-    }
+    setTimeout(() => {
+        for (let i = 0; i < N_CARDS; i++) {
+            let card = cards[i];
+            card.showCard();
+            setTimeout(() => {
+                card.hideCard();
+            }, 2300);
+        }
+    }, 1500);
 }
