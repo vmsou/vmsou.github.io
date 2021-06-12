@@ -3,7 +3,7 @@
     display: grid;
     place-items: center;
     place-content: center;
-    grid-template-columns: 150px 150px 150px 150px 150px 150px;
+    grid-template-columns: 180px 180px 180px 180px 180px 180px;
 }
 
 .flip-card {
@@ -17,14 +17,15 @@
     position: relative;
     transform-origin: center;
     z-index: 10;
-    width: 138px;
-    height: 200px;
+    width: 165px;
+    height: 240px;
     perspective: 1000px;
-    margin: 5px 10px;
+    margin: 8px;
 }
 
 .flip-card.active .flip-card-inner {
     transform: rotateY(-180deg);
+    border: 10px red;
 }
 
 .flip-card-front.holo:before, .flip-card-front.holo:after {
@@ -60,7 +61,6 @@
     background-position: center;
     background-size: 100%;
     z-index: 2;
-    animation: holoSparkle 15s ease infinite both;
     filter: brightness(2.5);
     transition: filter 0.5s ease;
 }
@@ -86,8 +86,8 @@
 }
 
 .card-img {
-    max-width: 138px;
-    max-height: 200px;
+    max-width: 170px;
+    max-height: 240px;
     width: auto;
     height: auto;
 }
