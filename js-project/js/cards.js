@@ -123,11 +123,15 @@ function start() {
     }
 
     randShuffle(cards);
+    
+    for (let i = 0; i < N_CARDS; i++) {
+        let card = cards[i];
+        container.append(card.cardElement);
+    }
 
     setTimeout(() => {
         for (let i = 0; i < N_CARDS; i++) {
             let card = cards[i];
-            container.append(card.cardElement);
             card.showCard();
             setTimeout(() => {
                 card.hideCard();
