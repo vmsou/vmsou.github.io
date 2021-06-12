@@ -1,15 +1,12 @@
 let N_CARDS = 6 * 3;
 let cards = [];
 let cardsNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4",
-    "17573739", "35877582", "56804361", "58066722", "65172015", "65301952", "67748760", "9464441", "98787535",
-    "10000000", "10000010", "10000020", "23995346", "33396948", "40908371", "55144522", "64631466", "70781052", "98502113", "99267150"];
+    "17573739", "35877582", "56804361", "58066722", "65172015", "65301952", "67748760", "9464441", "98787535"];
 let loadedNames = [];
 let lastClicked = null;
 
-let cursor_enabled = false;
 let nTries = 0;
 let nMatches = 0;
-
 
 class Card {
     constructor(x, front) {
@@ -66,34 +63,30 @@ class Card {
 
     eventCard(card) {
         card.addEventListener("click", () => {
-            if (cursor_enabled) {
-                if (!this.faceUp && !this.match) {
-                    ++nTries;
-                    this.showCard();
-                    if (lastClicked instanceof Card) {
-                        if (lastClicked.front === this.front) {
-                            ++nMatches;
-                            lastClicked = null;
-
-                            if (nMatches >= N_CARDS / 2) {
-                                setTimeout(() => {
-                                    alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
-                                }, 1000)
-                            }
-                        } else {
+            if (!this.faceUp && !this.match) {
+                ++nTries;
+                this.showCard();
+                if (lastClicked instanceof Card) {
+                    if (lastClicked.front === this.front) {
+                        ++nMatches;
+                        lastClicked = null;
+                        if (nMatches >= N_CARDS / 2) {
                             setTimeout(() => {
-                                this.hideCard();
-                                lastClicked.hideCard();
-                                lastClicked = null;
-                            }, 500)
+                                alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
+                            }, 1000)
                         }
-                    } else lastClicked = this;
-                }
+                    } else {
+                        setTimeout(() => {
+                            this.hideCard();
+                            lastClicked.hideCard();
+                            lastClicked = null;
+                        }, 500)
+                    }
+                } else lastClicked = this;
             }
         })
     }
 }
-
 
 function randChoice(choices) {
     let index = Math.floor(Math.random() * choices.length);
@@ -107,14 +100,12 @@ function randShuffle(sampleList) {
 function preload(imgName) {
     if (document.images && !loadedNames.includes(imgName)) {
         let img = new Image();
-        img.src = imgName
+        img.src = "../images/cards-front/" + imgName + ".png";
         loadedNames.push(imgName);
     }
 }
 
 function start() {
-    cursor_enabled = false;
-    preload("../images/cards-back/default.png");
     nTries = 0;
     nMatches = 0;
     lastClicked = null;
@@ -123,19 +114,15 @@ function start() {
     cards = [];
     for (let i = 0; i < N_CARDS / 2; i++) {
         let card_name = randChoice(cardsNames);
-        let card_link = "../images/cards-front/" + card_name + ".png"
-        preload(card_link)
-        let card1 = new Card(i, card_link);
-        let card2 = new Card(i, card_link);
+        preload(card_name)
+
+        let card1 = new Card(i, "../images/cards-front/" + card_name + ".png");
+        let card2 = new Card(i, "../images/cards-front/" + card_name + ".png");
         cards.push(card1);
         cards.push(card2);
     }
 
     randShuffle(cards);
-    for (let i = 0; i < N_CARDS; i++) {
-        let card = cards[i];
-        container.append(card.cardElement);
-    }
 
     setTimeout(() => {
         for (let i = 0; i < N_CARDS; i++) {
@@ -146,8 +133,4 @@ function start() {
             }, 2300);
         }
     }, 1500);
-
-    setTimeout(() => {
-        cursor_enabled = true;
-    }, 2500);
 }
