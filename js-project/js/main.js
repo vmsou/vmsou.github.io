@@ -1,3 +1,13 @@
+let loadedNames = [];
+
+function preload(imgName) {
+    if (document.images && !loadedNames.includes(imgName)) {
+        let img = new Image();
+        img.src = imgName
+        loadedNames.push(imgName);
+    }
+}
+
 function activeElement() {
     let activeHref = window.location.href;
     let container = document.getElementsByClassName("navLink");
@@ -13,12 +23,16 @@ function activeElement() {
 
 
 function loadTemplate(loc, tagName="header") {
-    let header = document.createElement(tagName);
-    document.body.append(header);
+    let element = document.createElement(tagName);
+
+    document.body.append(element);
     $(tagName).load(loc, null, function () {
-        $("#homeLogo").click(function () {
-            window.location = "/js-project/";
-        })
+        if (tagName === "header") {
+            $("#homeLogo").click(function () {
+                window.location = "/js-project/";
+            })
+        }
+
         activeElement();
     });
     let container = document.getElementsByTagName("script");
@@ -28,4 +42,6 @@ function loadTemplate(loc, tagName="header") {
             container[i].parentElement.removeChild(container[i]);
         }
     }
+    preload("/js-project/images/logo_puc2.svg");
 }
+

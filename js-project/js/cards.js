@@ -6,7 +6,6 @@ let yugiohNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "
     "10000000", "10000010", "10000020", "23995346", "33396948", "40908371", "55144522", "64631466", "70781052", "98502113", "99267150"];
 let pokemonNames = ["dark_charizard"]
 let cardNames = [];
-let loadedNames = [];
 let lastClicked = null;
 
 let cursor_enabled = false;
