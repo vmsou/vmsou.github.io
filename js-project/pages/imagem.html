@@ -10,13 +10,17 @@
     <title>Imagens</title>
 </head>
 <body>
-    <script>loadTemplate("../templates/header.html");</script>
-    <ul id="alertList" class="drag-sort-enable"></ul>
-    <div class="landing-main">
-        <h1>Imagens</h1>
-        <button onclick="start()">Iniciar</button>
+<script>loadTemplate("../templates/header.html");</script>
+<ul id="alertList" class="drag-sort-enable"></ul>
+<div class="landing-main">
+    <h1>Imagens</h1>
+    <div class="cardTypes" id="cardtypes">
+        <button class="btn active" id="yugioh" onclick="buttonToggle(this)">Yu-Gi-Oh!</button>
+        <button class="btn" id="pokemon" onclick="buttonToggle(this)">Pokemon</button>
     </div>
-    <div class="cards" id="cards-container">
-    </div>
+    <button class="btn" onclick="start()">Iniciar</button>
+</div>
+<div class="cards" id="cards-container">
+</div>
 </body>
 </html>

@@ -62,17 +62,26 @@ header {
     color: #912437;
 }
 
-button {
+.btn {
     cursor: pointer;
     padding: 9px 25px;
     background-color: rgba(14, 14, 18, 1);
     border: 1px solid #1E1E23;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
+    margin: 5px 5px;
 }
 
-button:hover {
+.btn.active {
     background-color: #912437;
+}
+
+.btn:hover {
+    background-color: #912437;
+}
+
+.cta {
+    border: none;
 }
 
 .landing-main {

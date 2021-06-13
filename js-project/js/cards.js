@@ -1,8 +1,11 @@
 let N_CARDS = 6 * 3;
 let cards = [];
-let cardsNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4",
+let cardFolder = "yugioh"
+let yugiohNames = ["front1", "front2", "front3", "carta1", "carta2", "carta3", "carta4",
     "17573739", "35877582", "56804361", "58066722", "65172015", "65301952", "67748760", "9464441", "98787535",
     "10000000", "10000010", "10000020", "23995346", "33396948", "40908371", "55144522", "64631466", "70781052", "98502113", "99267150"];
+let pokemonNames = ["dark_charizard"]
+let cardNames = [];
 let loadedNames = [];
 let lastClicked = null;
 
@@ -16,7 +19,7 @@ class Card {
         this.faceUp = false;
         this.match = false;
         this.front = front;
-        this.back = "../images/cards-back/default.png";
+        this.back = "../images/" + cardFolder + "/cards-back/default.png";
         this.cardElement = null;
         this.buildElement();
     }
@@ -94,6 +97,17 @@ class Card {
     }
 }
 
+function buttonToggle(e) {
+    let container = document.getElementsByClassName("btn");
+    for (let i = 0; i < container.length; i++) {
+        let b = container[i];
+        b.classList.remove("active");
+
+    }
+    e.classList.add("active");
+    cardFolder = e.id;
+}
+
 
 function randChoice(choices) {
     let index = Math.floor(Math.random() * choices.length);
@@ -113,8 +127,19 @@ function preload(imgName) {
 }
 
 function start() {
+    switch (cardFolder) {
+        case "yugioh":
+            cardNames = yugiohNames;
+            break;
+        case "pokemon":
+            cardNames = pokemonNames;
+            break;
+        default:
+            cardNames = yugiohNames;
+    }
+
     cursor_enabled = false;
-    preload("../images/cards-back/default.png");
+    preload("../images/" + cardFolder + "/cards-back/default.png");
     nTries = 0;
     nMatches = 0;
     lastClicked = null;
@@ -122,8 +147,8 @@ function start() {
     container.innerHTML = "";
     cards = [];
     for (let i = 0; i < N_CARDS / 2; i++) {
-        let card_name = randChoice(cardsNames);
-        let card_link = "../images/cards-front/" + card_name + ".png"
+        let card_name = randChoice(cardNames);
+        let card_link = "../images/" + cardFolder + "/cards-front/" + card_name + ".png"
         preload(card_link)
         let card1 = new Card(i, card_link);
         let card2 = new Card(i, card_link);
