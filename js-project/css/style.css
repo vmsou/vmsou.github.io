@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+body {
+    --btncolor: #912437;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -62,6 +66,14 @@ header {
     color: #912437;
 }
 
+.blue {
+    --btncolor: #007BFF;
+}
+
+.red {
+    --btncolor: #912437;
+}
+
 .btn {
     cursor: pointer;
     padding: 9px 25px;
@@ -72,12 +84,13 @@ header {
     margin: 5px 5px;
 }
 
+
 .btn.active {
-    background-color: #912437;
+    background-color: var(--btncolor);
 }
 
 .btn:hover {
-    background-color: #912437;
+    background-color: var(--btncolor);
 }
 
 .cta {
