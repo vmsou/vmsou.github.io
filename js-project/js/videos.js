@@ -1,21 +1,48 @@
 let videos_links = [
-    "https://www.youtube.com/embed/3WsyBosVTlk",
-    "https://www.youtube.com/embed/ASzOzrB-a9E",
-    "https://www.youtube.com/embed/qt-zQTiu8cA",
-    "https://www.youtube.com/embed/wDZ-9B6hX5A"
+    "3WsyBosVTlk",
+    "ASzOzrB-a9E",
+    "Wr9Add371is",
+    "wDZ-9B6hX5A",
+    "asqWq8MIAWA",
+]
+
+let videos_names = [
+    "RIO: Raised in Oblivion",
+    "Battlefield 2042",
+    "Avatar: Frontiers of Pandora",
+    "Halo Infinite",
+    "Elden Ring",
 ]
 
 function addVideos() {
     let container = document.getElementById("videos-container");
     for (let i = 0; i < videos_links.length; i++) {
-        let e = document.createElement("iframe");
-        e.className = "video";
-        e.src = videos_links[i];
-        e.allowfullscreen = true;
+        let e = document.createElement("div");
+        let img = document.createElement("img");
+        let modal = document.getElementById("showcase");
+        let img_modal = document.getElementById("showcase-image");
+        let caption = document.getElementById("caption");
+
+        e.className = "box";
+
+        img.src = "https:/i3.ytimg.com/vi/" + videos_links[i] + "/maxresdefault.jpg";
+        img.className = "box-image";
+        img.alt = "Test";
+        img.onclick = function() {
+            modal.style.display = "block";
+            img_modal.src = "https://www.youtube.com/embed/" + videos_links[i];
+            caption.innerHTML = videos_names[i];
+        }
+
+        modal.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        e.append(img);
         container.append(e);
     }
 }
 
-window.onload = () => {
+window.onload = function() {
     addVideos();
 }
