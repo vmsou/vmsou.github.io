@@ -98,11 +98,14 @@ class Card {
 
 function buttonToggle(e) {
     let container = document.getElementsByClassName("btn");
+    let play = document.getElementById("startGame");
     for (let i = 0; i < container.length; i++) {
         let b = container[i];
         b.classList.remove("active");
 
     }
+    play.classList.remove(play.classList[1]);
+    play.classList.add(e.classList[1]);
     e.classList.add("active");
     cardFolder = e.id;
 }
