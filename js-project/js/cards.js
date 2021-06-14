@@ -24,14 +24,14 @@ class Card {
     }
     buildElement() {
         let flip = document.createElement("div");
-        flip.className = "flip-card";
+        flip.className = "card";
 
         let inner = document.createElement("div");
-        inner.className = "flip-card-inner";
+        inner.className = "card-wrapper";
         flip.append(inner);
 
         let front = document.createElement("div");
-        front.className = "flip-card-front";
+        front.className = "card-front";
 
         if (Math.random() < 0.1) {
             front.classList.add("holo");
@@ -39,7 +39,7 @@ class Card {
         inner.append(front);
 
         let back = document.createElement("div");
-        back.className = "flip-card-back";
+        back.className = "card-back";
         inner.append(back);
 
         let img_front = document.createElement("img");
