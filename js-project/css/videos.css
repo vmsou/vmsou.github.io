@@ -1,0 +1,15 @@
+.videos {
+    display: grid;
+    align-content: center;
+    align-items: center;
+    grid-template-columns: 320px 320px 320px 320px;
+}
+
+.video {
+    margin: 5px 10px;
+    border: none;
+}
+
+.video:hover {
+    transform: scale(1.04);
+}
