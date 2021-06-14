@@ -25,9 +25,9 @@ function addVideos() {
 
         e.className = "box";
 
-        img.src = "https:/i3.ytimg.com/vi/" + videos_links[i] + "/maxresdefault.jpg";
+        img.src = "https://i3.ytimg.com/vi/" + videos_links[i] + "/maxresdefault.jpg";
         img.className = "box-image";
-        img.alt = "Test";
+        img.alt = videos_names[i];
         img.onclick = function() {
             modal.style.display = "block";
             img_modal.src = "https://www.youtube.com/embed/" + videos_links[i];
