@@ -2,6 +2,7 @@ let user = document.getElementById("user");
 let password = document.getElementById("password");
 let elementsArr = [user, password];
 
+
 function createAlert(alertName, alertMessage, alertType="error") {
     if (!document.getElementById("alertList")) {
         let alertList = document.createElement("ul");
@@ -108,13 +109,28 @@ function comunicarServer() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "../php/loginSave.php",
+        url: "../php/login.php",
         data: {
             ch_user: user.value,
             ch_pass: md5_pass,
+        },
+        success: function(data) {
+            if (data.status === "success") {
+                createAlert('Sucesso!', 'Dados enviados com sucesso.', 'success');
+                setTimeout(() => {
+                    window.location.href = "/js-project/"
+                }, 2000);
+                sessionStorage.setItem('status', 'loggedIn');
+                sessionStorage.setItem('username', data.username);
+            } else if (data.status === "error") {
+                createAlert('Erro!', 'Usuário ou Senha incorretos.', 'error');
+            }
+        },
+        error: function() {
+            createAlert('Erro!', 'Problemas com servidor.', 'error');
         }
+
     })
-    createAlert('Sucesso!', 'Dados enviados com sucesso.', 'success');
 }
 
 

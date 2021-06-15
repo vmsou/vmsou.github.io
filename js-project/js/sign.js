@@ -1,11 +1,10 @@
 let firstName = document.getElementById("firstName");
 let secondName = document.getElementById("secondName");
 let email = document.getElementById("email");
-let registry = document.getElementById("registry");
 let user = document.getElementById("user");
 let password = document.getElementById("password");
 let passwordConfirm = document.getElementById("passwordConfirm");
-let elementsArr = [firstName, secondName, email, registry, user, password, passwordConfirm];
+let elementsArr = [firstName, secondName, email, user, password, passwordConfirm];
 
 
 function createAlert(alertName, alertMessage, alertType="error") {
@@ -121,17 +120,37 @@ function comunicarServer() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "../php/signSave.php",
+        url: "../php/register.php",
         data: {
             ch_fname: firstName.value,
             ch_sname: secondName.value,
             ch_email: email.value,
-            ch_registry: registry.value,
             ch_user: user.value,
             ch_pass: md5_pass,
+        },
+        success: function(data) {
+            if (data.status === 'success') {
+                createAlert('Sucesso!', 'Dados enviados com sucesso.', 'success');
+                sessionStorage.setItem('status', 'loggedIn');
+                sessionStorage.setItem('username', data.username);
+                setTimeout(() => {
+                    window.location.href = "/js-project/pages/successful.html";
+                }, 2000);
+            }
+            else if (data.status === 'error') {
+                let errors = data.errors;
+                for (let i = 0; i < errors.length; i++) {
+                    createAlert('Erro!', errors[i], 'error');
+                }
+            } else {
+                createAlert('Erro!', "Não foi possível realizar o cadastro");
+            }
+        },
+        error: function() {
+            createAlert('Erro!', 'Problemas com servidor.', 'error');
         }
     })
-    createAlert('Sucesso!', 'Dados enviados com sucesso.', 'success');
+
 }
 
 
