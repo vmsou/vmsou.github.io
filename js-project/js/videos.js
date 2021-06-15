@@ -20,7 +20,7 @@ function addVideos() {
         let e = document.createElement("div");
         let img = document.createElement("img");
         let modal = document.getElementById("showcase");
-        let img_modal = document.getElementById("showcase-image");
+        let video_modal = document.getElementById("showcase-video");
         let caption = document.getElementById("caption");
 
         e.className = "box";
@@ -30,12 +30,15 @@ function addVideos() {
         img.alt = videos_names[i];
         img.onclick = function() {
             modal.style.display = "block";
-            img_modal.src = "https://www.youtube.com/embed/" + videos_links[i];
+            video_modal.src = "https://www.youtube.com/embed/" + videos_links[i];
             caption.innerHTML = videos_names[i];
         }
 
         modal.onclick = function() {
             modal.style.display = "none";
+            video_modal.src = "";
+            caption.innerHTML = "";
+
         }
 
         e.append(img);
