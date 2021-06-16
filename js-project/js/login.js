@@ -129,7 +129,6 @@ function comunicarServer() {
         error: function() {
             createAlert('Erro!', 'Problemas com servidor.', 'error');
         }
-
     })
 }
 
