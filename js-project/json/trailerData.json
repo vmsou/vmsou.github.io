@@ -1,22 +1,26 @@
 [
   {
-    "trailerName": "Elder Ring",
+    "videoName": "Elder Ring",
     "videoLink": "E3Huy2cdih0"
   },
   {
-    "trailerName": "Halo Infinite",
+    "videoName": "Halo Infinite",
     "videoLink": "wDZ-9B6hX5A"
   },
   {
-    "trailerName": "RIO: Raised in Oblivion",
+    "videoName": "RIO: Raised in Oblivion",
     "videoLink": "3WsyBosVTlk"
   },
   {
-    "trailerName": "Battlefield 2042",
+    "videoName": "Battlefield 2042",
     "videoLink": "ASzOzrB-a9E"
   },
   {
-    "trailerName": "Avatar: Frontiers of Pandora",
+    "videoName": "Avatar: Frontiers of Pandora",
     "videoLink": "Wr9Add371is"
+  },
+  {
+    "videoName": "The Legend of Zelda: Breath of the Wild 2",
+    "videoLink": "Pi-MRZBP91I"
   }
 ]

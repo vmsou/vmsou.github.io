@@ -1,5 +1,3 @@
-let videos_links = [], videos_names = [];
-
 function addVideos() {
     let container = document.getElementById("videos-container");
     let requestURL = "../json/trailerData.json";
@@ -10,12 +8,8 @@ function addVideos() {
 
     request.onload = function() {
         let data = request.response;
-        for (let i = 0; i < data.length; i++) {
-            videos_links.push(data[i]["videoLink"]);
-            videos_names.push(data[i]["trailerName"]);
-        }
 
-        for (let i = 0; i < videos_links.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             let e = document.createElement("div");
             let img = document.createElement("img");
             let modal = document.getElementById("showcase");
@@ -24,20 +18,19 @@ function addVideos() {
 
             e.className = "box";
 
-            img.src = "https://i3.ytimg.com/vi/" + videos_links[i] + "/maxresdefault.jpg";
+            img.src = "https://i3.ytimg.com/vi/" + data[i]["videoLink"] + "/maxresdefault.jpg";
             img.className = "box-image";
-            img.alt = videos_names[i];
+            img.alt = data[i]["videoName"];
             img.onclick = function() {
                 modal.style.display = "block";
-                video_modal.src = "https://www.youtube.com/embed/" + videos_links[i];
-                caption.innerHTML = videos_names[i];
+                video_modal.src = "https://www.youtube.com/embed/" + data[i]["videoLink"];
+                caption.innerHTML = data[i]["videoName"];
             }
 
             modal.onclick = function() {
                 modal.style.display = "none";
                 video_modal.src = "";
                 caption.innerHTML = "";
-
             }
 
             e.append(img);
