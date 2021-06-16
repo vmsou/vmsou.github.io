@@ -3,7 +3,7 @@
     display: grid;
     place-items: center;
     place-content: center;
-    grid-template-columns: 180px 180px 180px 180px 180px 180px;
+    grid-template-columns: repeat(6, 180px);
 }
 
 .card {

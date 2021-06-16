@@ -11,7 +11,7 @@
     display: grid;
     align-content: center;
     align-items: center;
-    grid-template-columns: 310px 310px 310px 310px 310px;
+    grid-template-columns: repeat(5, 310px);
 }
 
 .box {
