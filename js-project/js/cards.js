@@ -90,8 +90,9 @@ class Card {
                     if (lastClicked instanceof Card) {
                         if (lastClicked.front === this.front) {
                             ++nMatches;
+                            this.cardElement.classList.add("scaleHover");
+                            lastClicked.cardElement.classList.add("scaleHover");
                             lastClicked = null;
-
                             if (nMatches >= N_CARDS / 2) {
                                 setTimeout(() => {
                                     alert(`Todas combinações encontradas em ${nTries} Tentativas.`)
@@ -113,7 +114,7 @@ class Card {
 
 function buttonToggle(e) {
     let container = document.getElementsByClassName("btn");
-    let play = document.getElementById("startGame");
+    let play = document.getElementById("startGame") !== null ? document.getElementById("startGame") : document.getElementById("showCards") ;
     for (let i = 0; i < container.length; i++) {
         let b = container[i];
         b.classList.remove("active");
@@ -194,3 +195,45 @@ function start() {
         cursor_enabled = true;
     }, 2500);
 }
+
+
+function showCards() {
+    cursor_enabled = false;
+    switch (cardFolder) {
+        case "yugioh":
+            cardNames = yugiohNames;
+            break;
+        case "pokemon":
+            cardNames = pokemonNames;
+            break;
+        default:
+            cardNames = yugiohNames;
+    }
+
+    N_CARDS = cardNames.length;
+    preload("../images/" + cardFolder + "/cards-back/default.png");
+    let container = document.getElementById("cards-container");
+    container.innerHTML = "";
+    cards = [];
+    for (let i = 0; i < N_CARDS; i++) {
+        let card_name = cardNames[i];
+        let card_link = "../images/" + cardFolder + "/cards-front/" + card_name + ".png"
+        preload(card_link)
+        let card1 = new Card(i, card_link);
+        cards.push(card1);
+    }
+
+    for (let i = 0; i < N_CARDS; i++) {
+        let card = cards[i];
+        container.append(card.cardElement);
+    }
+
+    setTimeout(() => {
+        for (let i = 0; i < N_CARDS; i++) {
+            let card = cards[i];
+            card.showCard();
+            card.cardElement.classList.add("scaleHover");
+        }
+    }, 1500);
+}
+

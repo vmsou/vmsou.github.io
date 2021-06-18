@@ -13,6 +13,7 @@ input {
 }
 
 input.login {
+    color: black;
     font-family: Arial, serif;
     background: white;
     margin-bottom: 3px;

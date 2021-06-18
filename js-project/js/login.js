@@ -118,7 +118,7 @@ function comunicarServer() {
             if (data.status === "success") {
                 createAlert('Sucesso!', 'Dados enviados com sucesso.', 'success');
                 setTimeout(() => {
-                    window.location.href = "/js-project/"
+                    window.location.href = "/js-project/pages/successful.html"
                 }, 2000);
                 sessionStorage.setItem('status', 'loggedIn');
                 sessionStorage.setItem('username', data.username);
@@ -129,6 +129,7 @@ function comunicarServer() {
         error: function() {
             createAlert('Erro!', 'Problemas com servidor.', 'error');
         }
+
     })
 }
 
