@@ -19,6 +19,7 @@ body {
 
 
 header {
+    position: static;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,6 +134,10 @@ header {
     justify-content: center;
 }
 
+.landing-main p {
+    margin: 5px;
+}
+
 .landing-bg {
     min-height: 100vh;
     width: 100%;
@@ -156,7 +161,7 @@ header {
 }
 
 .landing-intro p {
-    margin: 10px 0 40px;
+    margin: 10px 5px 40px;
     font-size: 14px;
     color: #fff;
 }
@@ -183,4 +188,122 @@ header {
     color: white;
     width: 1200px;
     height: 400px;
+}
+
+/*-----Home page-----*/
+.banner {
+    min-height: 90vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(../images/rosa.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #0e0e12, transparent);
+    z-index: 255;
+}
+
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.text-box h1{
+    font-size: 40px;
+    margin: 15px 10px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-box p{
+    margin: 10px 0 40px;
+}
+
+/*-----Paginas-----*/
+
+
+
+.paginas{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.paginas h1{
+    font-size: 30px;
+    font-weight: 600;
+    color:rgb(255, 248, 248)
+}
+
+.paginas p{
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 100;
+    padding: 8px;
+    color: rgb(136, 136, 136)
+}
+
+/*-----Preview paginas-----*/
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagina-col{
+    flex-basis: 31%;
+    background: #121214;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.3s
+}
+
+.pagina-col h2{
+    text-align: center;
+    margin: 10px 0;
+    color: #fff
+}
+
+.pagina-col:hover{
+    box-shadow: 0 0 20px 0 rgba(100, 100, 100, 0.2);
+    background-color: #070707;
+    color: black
+}
+
+/*----footer----*/
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    background-color: rgb(19, 19, 19);
+    border-top: 1px solid rgb(43, 43, 43);
+}
+
+.footer h5{
+    margin-bottom: 20px;
+    margin-top: 15px;
+    color: rgb(136, 136, 136)
+}
+
+.footer p{
+    color: rgb(136, 136, 136);
+    font-size: 10px;
+    margin-bottom: 15px;
 }
