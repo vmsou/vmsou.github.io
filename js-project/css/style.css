@@ -2,23 +2,21 @@
 
 body {
     --btncolor: #912437;
+    background: #0E0E12;
 }
 
 * {
+    background: transparent;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #0F0F13;
-}
-
-li, a.navLink, button, h2{
-    background: transparent;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: #edf0f1;
     text-decoration: none;
 }
+
 
 header {
     display: flex;
@@ -62,9 +60,24 @@ header {
     color: #912437
 }
 
-.navLink.active {
-    color: #912437;
+.navLinks li a::after {
+    transition:  all 0.3s ease 0s;
+    content: '';
+    width: 0;
+    height: 2px;
+    background: #912437;
+    display: block;
+    margin: auto;
 }
+
+.navLinks li a:hover::after {
+    width: 100%;
+}
+
+.navLink.active {
+    color: #912437
+}
+
 
 .blue {
     --btncolor: #007BFF;
@@ -112,9 +125,62 @@ header {
 }
 
 .landing-main h1 {
+    font-size: 30px;
     margin: 15px 10px;
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.landing-bg {
+    min-height: 100vh;
+    width: 100%;
+    background: #0E0E12;
+    background-size: cover;
+    position: absolute;
+}
+
+.landing-intro {
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+}
+
+.landing-intro h1 {
+    font-size: 60px;
+}
+
+.landing-intro p {
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.p-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px  34px;
+    font-size: 13px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.p-btn:hover {
+    border: 1px solid var(--btncolor);
+    background: var(--btncolor);
+    transition: 1s;
+}
+
+.landing-area {
+    margin: 0;
+    color: white;
+    width: 1200px;
+    height: 400px;
 }
