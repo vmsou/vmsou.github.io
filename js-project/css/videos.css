@@ -1,3 +1,8 @@
+.body {
+    --unseen: url("https://image.flaticon.com/icons/png/512/57/57122.png");
+    --vis: --unseen;
+}
+
 .video {
     margin: 5px 10px;
     border: none;
@@ -15,6 +20,11 @@
 }
 
 .box {
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: 0;
+    background: var(--vis) center;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.4s ease 0s;
@@ -24,6 +34,39 @@
 .box:hover {
     opacity: 0.7;
 }
+
+.box:hover::after {
+    opacity: 0.9;
+    pointer-events: none;
+    --vis: url("https://cdn0.iconfinder.com/data/icons/glyph-set-two/32/glyph-set-two-18-512.png");
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--vis) no-repeat center;
+    background-size: 43%;
+}
+
+.box.visited::after {
+    opacity: 0.7;
+    pointer-events: none;
+    --vis: url("https://image.flaticon.com/icons/png/512/57/57122.png");
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--vis) no-repeat center;
+    background-size: 38%;
+}
+
+.box.visited:hover::after {
+    opacity: 1;
+}
+
 
 .box-image {
     background: rgba(0,0,0,0);

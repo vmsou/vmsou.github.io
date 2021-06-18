@@ -25,6 +25,7 @@ function addVideos() {
                 modal.style.display = "block";
                 video_modal.src = "https://www.youtube.com/embed/" + data[i]["videoLink"];
                 caption.innerHTML = data[i]["videoName"];
+                e.classList.add("visited");
             }
 
             modal.onclick = function() {
