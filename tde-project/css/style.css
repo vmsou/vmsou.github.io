@@ -24,6 +24,10 @@ body {
     --textColor: #fff;
 }
 
+.red {
+    --textColor: #912437;
+}
+
 .black-bg {
     --bgColor: #111;
 }
@@ -130,11 +134,12 @@ header ul li a {
     border-left: 5px solid #fff;
     border-bottom: 5px solid #fff;
     box-shadow: red;
-    transform: rotate(45deg);
+    transform: rotate(225deg);
 }
 
 .controls li:nth-child(2)::before {
-    transform: rotate(225deg);
+    transform: rotate(45deg);
+    margin-left: 25px;
 }
 
 .contentBox {
