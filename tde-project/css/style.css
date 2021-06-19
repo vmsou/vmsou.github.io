@@ -14,10 +14,52 @@ body {
     background: #0E0E12;
 }
 
+
+.black {
+    --boxColor: rgba(0, 0, 0, 0.8);
+    --textColor: #111;
+}
+
+.white {
+    --boxColor: rgba(255, 255, 255, 0.8);
+    --textColor: #fff;
+}
+
+.red {
+    --textColor: #912437;
+}
+
+.black-bg {
+    --bgColor: #111;
+}
+
+.white-bg {
+    --bgColor: #fff;
+}
+
+.github.dark::after {
+    content: '';
+    position: absolute;
+    background: url("../images/github_dark.png") no-repeat left;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 5px;
+}
+
+.github.light::after {
+    content: '';
+    position: absolute;
+    background: url("../images/github_light.png") no-repeat left;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 5px;
+}
+
 .loader {
     pointer-events: none;
 }
-
 
 .hide-screen {
     position: absolute;
@@ -54,27 +96,6 @@ body {
     animation: spin 1.3s linear infinite;
 }
 
-.black {
-    --boxColor: rgba(0, 0, 0, 0.8);
-    --textColor: #111;
-}
-
-.white {
-    --boxColor: rgba(255, 255, 255, 0.8);
-    --textColor: #fff;
-}
-
-.red {
-    --textColor: #912437;
-}
-
-.black-bg {
-    --bgColor: #111;
-}
-
-.white-bg {
-    --bgColor: #fff;
-}
 
 header {
     position: fixed;
@@ -231,6 +252,7 @@ header ul li a {
 }
 
 .contentBox div a {
+    position: relative;
     color: var(--textColor);
     font-size: 1.1em;
     display: inline-block;
@@ -244,6 +266,7 @@ header ul li a {
     border: 1px solid var(--bgColor);
 }
 
+
 .contentBox div a:hover {
     background: transparent;
     border: 1px solid var(--bgColor);
@@ -254,6 +277,11 @@ header ul li a {
     border: 1px solid var(--textColor);
     color: var(--textColor);
 }
+
+.contentBox div a.github {
+    padding-left: 50px;
+}
+
 
 @keyframes spin {
     0% { transform: rotate(0deg); }
