@@ -5,10 +5,31 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    --boxColor: rgba(0, 0, 0, 0.8);
+    --textColor: #fff;
+    --bgColor: #fff;
 }
 
 body {
     background: #0E0E12;
+}
+
+.black {
+    --boxColor: rgba(0, 0, 0, 0.8);
+    --textColor: #111;
+}
+
+.white {
+    --boxColor: rgba(255, 255, 255, 0.8);
+    --textColor: #fff;
+}
+
+.black-bg {
+    --bgColor: #111;
+}
+
+.white-bg {
+    --bgColor: #fff;
 }
 
 header {
@@ -129,25 +150,25 @@ header ul li a {
 .contentBox div.active {
     display: block;
     padding: 30px 30px 30px 100px;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--boxColor);
 }
 
 .contentBox div h2 {
-    color: #fff;
+    color: var(--textColor);
     font-size: 2em;
 }
 
 .contentBox div p {
-    color: #fff;
+    color: var(--textColor);
     font-size: 1.1em;
 }
 
 .contentBox div a {
-    color: #111;
+    color: var(--textColor);
     font-size: 1.1em;
     display: inline-block;
     padding: 10px 30px;
-    background: #fff;
+    background: var(--bgColor);
     margin-top: 10px;
     text-decoration: none;
     letter-spacing: 2px;
