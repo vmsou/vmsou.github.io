@@ -8,27 +8,27 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Projetos</a>
+        <a href="#" class="logo">Portfólio</a>
         <ul>
-            <li><a href="#">Pagina Inicial</a></li>
-            <li><a href="#">Projetos</a></li>
+            <li><a href="/tde-project/">Pagina Inicial</a></li>
             <li><a href="#">Sobre</a></li>
         </ul>
     </header>
+
     <section class="banner">
         <div class="imgBox">
             <img src="./images/black.png" class="active">
             <img src="./images/aot.png">
-            <img src="images/breakout.png">
-            <img src="images/site.png">
+            <img src="./images/breakout.png">
+            <img src="./images/site.png">
         </div>
         <div class="contentBox">
             <div class="black active">
                 <h2 class="white">Introdução</h2>
-                <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.</p>
-                <a href="#" class="black white-bg">Sobre</a>
+                <p class="white">Portfólio realizado por Vinicuis Marques durante a disciplina Experiência Criativa:
+                    Navegando na Computação. Esse site busca fazer um resumo dos projetos realizados nessa disciplina.
+                    Para navegar pelo site clique nas setas na parte direita do site.</p>
+                <a href="https://github.com/vmsou/vmsou.github.io/tree/master/tde-project" class="black white-bg">Github</a>
             </div>
             <div class="black">
                 <h2 class="white">Projeto I - Jogo</h2>
@@ -36,12 +36,14 @@
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat.</p>
                 <a href="#" class="black white-bg">Sobre</a>
+                <a href="https://aotdemo.netlify.app/" class="black white-bg">Jogar</a>
             </div>
             <div class="white">
                 <h2 class="black">Projeto II - Aplicativo Multimídia</h2>
                 <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat.</p>
+                <a class="white black-bg" href="https://github.com/vmsou/processing-tde">Github</a>
                 <a class="white black-bg" href="#">Sobre</a>
             </div>
             <div>
@@ -49,13 +51,14 @@
                 <p class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat.</p>
-                <a class="red black-bg" href="#">Sobre</a>
+                <a class="red black-bg textBg" href="#">Sobre</a>
+                <a class="red black-bg textBg" href="https://vmsou.github.io/js-project/">Visitar Site</a>
             </div>
         </div>
         </div>
         <ul class="controls">
-            <li onclick="nextSlide()"></li>
-            <li onclick="backSlide()"></li>
+            <li class="arrow right" onclick="nextSlide()"></li>
+            <li class="arrow left" onclick="backSlide()"></li>
         </ul>
     </section>
 </body>
