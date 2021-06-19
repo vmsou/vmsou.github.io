@@ -14,6 +14,46 @@ body {
     background: #0E0E12;
 }
 
+.loader {
+    pointer-events: none;
+}
+
+
+.hide-screen {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hide-screen.active {
+    opacity: 1;
+}
+
+.loading {
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 16px transparent;
+    border-top: 16px solid #0E0E12;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.loading.active {
+    opacity: 1;
+    animation: spin 1.3s linear infinite;
+}
+
 .black {
     --boxColor: rgba(0, 0, 0, 0.8);
     --textColor: #111;
@@ -213,4 +253,9 @@ header ul li a {
 .contentBox div a.textBg:hover {
     border: 1px solid var(--textColor);
     color: var(--textColor);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -4,6 +4,20 @@ const contentBox = document.querySelector(".contentBox");
 const boxes = contentBox.getElementsByTagName("div");
 const slides = imgBox.getElementsByTagName("img");
 
+function completeLoad() {
+    const loader = document.getElementById("loader-1");
+    const screen = loader.getElementsByClassName("hide-screen");
+    const loading = loader.getElementsByClassName("loading");
+
+    screen[0].classList.add("active");
+    loading[0].classList.add("active");
+    setTimeout(() => {
+        screen[0].classList.remove("active");
+
+        loading[0].classList.remove("active");
+    }, 1000);
+}
+
 
 function clearSelection() {
     if (window.getSelection) window.getSelection().removeAllRanges();
@@ -28,3 +42,5 @@ function backSlide() {
     boxes[i].classList.add("active");
     clearSelection();
 }
+
+completeLoad();
