@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #f00;
+    background: #0E0E12;
 }
 
 header {
@@ -114,4 +114,43 @@ header ul li a {
 
 .controls li:nth-child(2)::before {
     transform: rotate(225deg);
+}
+
+.contentBox {
+    position: absolute;
+    bottom: 0;
+    max-width: 700px;
+}
+
+.contentBox div {
+    display: none;
+}
+
+.contentBox div.active {
+    display: block;
+    padding: 30px 30px 30px 100px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.contentBox div h2 {
+    color: #fff;
+    font-size: 2em;
+}
+
+.contentBox div p {
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.contentBox div a {
+    color: #111;
+    font-size: 1.1em;
+    display: inline-block;
+    padding: 10px 30px;
+    background: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
