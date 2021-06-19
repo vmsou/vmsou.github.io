@@ -8,6 +8,7 @@
     --boxColor: rgba(0, 0, 0, 0.8);
     --textColor: #fff;
     --bgColor: #fff;
+    --btnIcon: url("../images/github_black.png");
 }
 
 body {
@@ -38,9 +39,10 @@ body {
 }
 
 .github.dark::after {
+    --btnIcon: url("../images/github_black.png");
     content: '';
     position: absolute;
-    background: url("../images/github_dark.png") no-repeat left;
+    background: var(--btnIcon) no-repeat left;
     top: 0;
     bottom: 0;
     right: 0;
@@ -48,14 +50,24 @@ body {
 }
 
 .github.light::after {
+    --btnIcon: url("../images/github_white.png");
     content: '';
     position: absolute;
-    background: url("../images/github_light.png") no-repeat left;
+    background: var(--btnIcon) no-repeat left;
     top: 0;
     bottom: 0;
     right: 0;
     left: 5px;
 }
+
+.github.hover-dark:hover::after {
+    --btnIcon: url("../images/github_black.png");
+}
+
+.github.hover-light:hover::after {
+    --btnIcon: url("../images/github_white.png");
+}
+
 
 .loader {
     pointer-events: none;
