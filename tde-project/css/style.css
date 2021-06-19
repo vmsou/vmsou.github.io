@@ -8,7 +8,7 @@
 }
 
 body {
-    background: #ff0;
+    background: #f00;
 }
 
 header {
@@ -22,10 +22,28 @@ header {
     padding: 30px 100px;
 }
 
-header.logo {
+header .logo {
     position: relative;
     color: #fff;
     font-weight: 700;
     font-size: 2em;
+    text-decoration: none;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    position: relative;
+    list-style: none;
+    margin-left: 40px;
+}
+
+header ul li a {
+    color: #fff;
     text-decoration: none;
 }
