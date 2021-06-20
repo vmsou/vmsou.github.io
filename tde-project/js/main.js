@@ -6,6 +6,27 @@ const slides = imgBox.getElementsByTagName("img");
 const subContents = document.querySelector(".subContents");
 const subContent = subContents.getElementsByClassName("subContent");
 
+function keyboardTrigger() {
+    const right = document.getElementById("btn-forward");
+    const left = document.getElementById("btn-backwards");
+
+    right.onclick = nextSlide;
+    left.onclick = backSlide;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "ArrowRight" || e.key === "d") {
+            nextSlide();
+        }
+    })
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "ArrowLeft" || e.key === "a") {
+            backSlide();
+        }
+    })
+
+}
+
 function completeLoad() {
     const loader = document.getElementById("loader-1");
     const screen = loader.getElementsByClassName("hide-screen");
@@ -13,7 +34,9 @@ function completeLoad() {
 
     screen[0].classList.add("active");
     loading[0].classList.add("active");
+
     setTimeout(() => {
+        keyboardTrigger();
         screen[0].classList.remove("active");
         loading[0].classList.remove("active");
         subContent[0].classList.add("active");
