@@ -14,10 +14,10 @@
         <div class="loading"></div>
     </div>
     <header>
-        <a href="#" class="logo">Portfólio</a>
+        <a href="/tde-project/" class="logo">Portfólio</a>
         <ul>
             <li><a href="/tde-project/">Pagina Inicial</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a href="#" onclick="activeModal(0)">Sobre</a></li>
         </ul>
     </header>
     <section class="banner">
@@ -39,7 +39,7 @@
                 <h2 class="white">Projeto I - Jogo</h2>
                 <p class="white">Atividade requisitada era a construção de um jogo através da Plataforma Construct.
                 No caso da nossa equipe foi utilizado o Construct 3.</p>
-                <a onclick="activeModal(0)" class="black white-bg">Sobre</a>
+                <a onclick="activeModal(1)" class="black white-bg">Sobre</a>
                 <a href="https://aotdemo.netlify.app/" class="black white-bg">Jogar</a>
             </div>
             <div class="white">
@@ -47,7 +47,7 @@
                 <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat.</p>
-                <a onclick="activeModal(1)" class="white black-bg">Sobre</a>
+                <a onclick="activeModal(2)" class="white black-bg">Sobre</a>
                 <a class="white black-bg github light hover-dark" href="https://github.com/vmsou/processing-tde">Github</a>
             </div>
             <div>
@@ -55,20 +55,26 @@
                 <p class="red">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat.</p>
-                <a onclick="activeModal(2)" class="red black-bg textBg">Sobre</a>
+                <a onclick="activeModal(3)" class="red black-bg textBg">Sobre</a>
                 <a class="red black-bg textBg github light hover-light" href="https://vmsou.github.io/js-project/">Visitar Site</a>
             </div>
         </div>
         <div class="subContents">
             <div class="subContent" id="sub-intro">
                 <img src="./images/seta.png" class="indicator">
+                <div class="modal" id="showcase-intro">
+                    <div class="modal-wrap">
+                        <p>Portfólio construido com HTML, CSS e JavaScript.
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="subContent" id="sub-projectI">
                 <div class="modal" id="showcase1">
-                    <div class="modal-wrap" id="showcase-text">
+                    <div class="modal-wrap">
                         <p>Para esse projeto, tivemos a ideia de desenvolver um jogo baseado no Universo de Attack on Titan,
                             porém com uma história original, o jogo segue uma plataforma 2D, o jogador tem acesso a equipamento
-                            de manobra bidimensional, enquanto explora uma caverna, há de se defender de inimigos colossais,
+                            de manobra bidimensional. <br> Enquanto explora uma caverna, há de se defender de inimigos colossais,
                             também conhecidos como Titãs, isso enquanto tem que se preocupar com a munição de seu equipamento
                             recarregando o gás que o propulsiona.
                         </p>
