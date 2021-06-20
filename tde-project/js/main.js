@@ -3,6 +3,8 @@ const imgBox = document.querySelector(".imgBox");
 const contentBox = document.querySelector(".contentBox");
 const boxes = contentBox.getElementsByTagName("div");
 const slides = imgBox.getElementsByTagName("img");
+const subContents = document.querySelector(".subContents");
+const subContent = subContents.getElementsByClassName("subContent");
 
 function completeLoad() {
     const loader = document.getElementById("loader-1");
@@ -13,9 +15,9 @@ function completeLoad() {
     loading[0].classList.add("active");
     setTimeout(() => {
         screen[0].classList.remove("active");
-
         loading[0].classList.remove("active");
-    }, 1000);
+        subContent[0].classList.add("active");
+    }, 1500);
 }
 
 
@@ -25,9 +27,11 @@ function clearSelection() {
 
 
 function nextSlide() {
+    if (i < subContent.length) subContent[i].classList.remove("active");
     slides[i].classList.remove("active");
     boxes[i].classList.remove("active");
     i = (i + 1) % slides.length;
+    if (i < subContent.length) subContent[i].classList.add("active");
     slides[i].classList.add("active");
     boxes[i].classList.add("active");
     clearSelection();
@@ -35,9 +39,11 @@ function nextSlide() {
 }
 
 function backSlide() {
+    if (i < subContent.length) subContent[i].classList.remove("active");
     slides[i].classList.remove("active");
     boxes[i].classList.remove("active");
     i = (i - 1 + slides.length) % slides.length;
+    if (i < subContent.length) subContent[i].classList.add("active");
     slides[i].classList.add("active");
     boxes[i].classList.add("active");
     clearSelection();

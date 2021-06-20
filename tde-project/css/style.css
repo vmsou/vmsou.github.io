@@ -22,7 +22,7 @@ body {
 }
 
 .white {
-    --boxColor: rgba(255, 255, 255, 0.8);
+    --boxColor: rgba(255, 255, 255, 0.6);
     --textColor: #fff;
 }
 
@@ -193,6 +193,25 @@ header ul li a {
     opacity: 1;
 }
 
+.subContent {
+    opacity: 0;
+}
+
+.subContent.active {
+    opacity: 1;
+}
+
+.indicator {
+    position: fixed;
+    top: 42%;
+    transform: translateY(-42%);
+    right: 10vh;
+    width: 30vh;
+}
+
+.indicator.active{
+}
+
 .controls {
     position: absolute;
     top: 50%;
@@ -241,6 +260,7 @@ header ul li a {
     position: absolute;
     bottom: 0;
     max-width: 700px;
+    transition: 0.5s;
 }
 
 .contentBox div {
