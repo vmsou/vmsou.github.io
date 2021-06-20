@@ -6,6 +6,13 @@ const slides = imgBox.getElementsByTagName("img");
 const subContents = document.querySelector(".subContents");
 const subContent = subContents.getElementsByClassName("subContent");
 
+const modals = document.querySelectorAll(".modal");
+
+
+function activeModal(num) {
+    modals[num].classList.add("active");
+}
+
 function keyboardTrigger() {
     const right = document.getElementById("btn-forward");
     const left = document.getElementById("btn-backwards");
@@ -35,8 +42,14 @@ function completeLoad() {
     screen[0].classList.add("active");
     loading[0].classList.add("active");
 
+    for (let i = 0; i < modals.length; i++) {
+        modals[i].onclick = function() {
+            modals[i].classList.remove("active");
+        }
+    }
+
+    keyboardTrigger();
     setTimeout(() => {
-        keyboardTrigger();
         screen[0].classList.remove("active");
         loading[0].classList.remove("active");
         subContent[0].classList.add("active");
