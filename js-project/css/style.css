@@ -138,8 +138,17 @@ header {
     justify-content: center;
 }
 
+.landing-main h2 {
+    font-size: 23px;
+    margin: 10px 10px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .landing-main p {
-    margin: 5px;
+    margin: 25px;
 }
 
 .landing-bg {
