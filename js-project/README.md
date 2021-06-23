@@ -6,4 +6,6 @@ Website construido utlizando HTML, CSS, JavaScript e PHP.
 * Gabriel Sposito Conciani 
 * Gustavo Furini 
 * Henrique Marques da Silva de Oliveira 
-* Vinicius Marques da Silva de Oliveira 
+* Vinicius Marques da Silva de Oliveira
+
+## [Visitar site](https://vmsou.github.io/js-project/)
