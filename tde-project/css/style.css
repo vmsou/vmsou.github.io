@@ -179,7 +179,7 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    padding: 30px 100px;
+    padding: 1rem 2rem;
 }
 
 header .logo {
@@ -329,7 +329,7 @@ header ul li a {
 
 .contentBox div.active {
     display: block;
-    padding: 30px 30px 30px 100px;
+    padding: 2rem 3rem 2rem 3rem;
     background: var(--boxColor);
 }
 
